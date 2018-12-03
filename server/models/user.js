@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.plugin(schema => { schema.options.usePushEach = true });
 const validator = require('validator');
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -30,7 +31,8 @@ var UserSchema = new mongoose.Schema({
             type: String,
             require: true
         }
-    }]
+    }],
+    usePushEach : true
 });
 
 UserSchema.methods.toJSON = function () {
